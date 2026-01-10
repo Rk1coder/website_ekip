@@ -490,7 +490,7 @@ const App = () => {
               ))}
             </div>
           </div>
-        </section>
+        </section
       )}
 
       <footer className="py-24 border-t border-blue-900/20 px-8 bg-[#01040f]">
