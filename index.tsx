@@ -293,6 +293,22 @@ const Navbar = ({ activePage, setPage }: { activePage: Page, setPage: (p: Page) 
         <a href="https://form.jotform.com/212165646397059" target="_blank" className="bg-white text-slate-950 px-5 md:px-8 py-2 md:py-2.5 rounded-2xl font-black text-[10px] md:text-[11px] uppercase tracking-wider hover:bg-blue-50 transition-all flex items-center gap-3">KATIL <ExternalLink className="w-4 h-4" /></a>
         <button className="lg:hidden text-slate-400 p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}</button>
       </div>
+
+      {isMenuOpen && (
+        <div className="absolute top-full left-0 right-0 bg-slate-950/95 border-b border-blue-500/10 lg:hidden z-50">
+          <div className="flex flex-col gap-4 p-6 max-w-7xl mx-auto">
+            {menuItems.map(item => (
+              <button key={item.id} onClick={() => handleNav(item.id as Page)} className={`text-left py-3 px-4 rounded-lg font-black uppercase tracking-[0.15em] transition-all ${
+                activePage === item.id 
+                  ? 'bg-blue-600 text-white' 
+                  : 'text-slate-400 hover:text-white hover:bg-slate-900/50'
+              }`}>
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
@@ -441,7 +457,7 @@ const App = () => {
                   {[
                     { label: "Geliştirilen Prototip", value: "25+", icon: <Layers className="w-5 h-5" /> },
                     { label: "Uluslararası Derece", value: "8", icon: <Globe className="w-5 h-5" /> },
-                    { label: "Yerlilik Oranı", value: "%100", icon: <Shield className="w-5 h-5" /> }
+                    { label: "Yerlilik Oranı", value: "%80", icon: <Shield className="w-5 h-5" /> }
                   ].map((stat, i) => (
                     <div key={i} className="flex items-center justify-between group">
                       <div className="flex items-center gap-4">
