@@ -128,41 +128,66 @@ const ImagePlaceholder = ({ label, className = "" }: { label: string, className?
   </div>
 );
 
-const TeamMemberCard = ({ member, key }: { member: TeamMember; key?: React.Key }) => {
+// Added key prop to fix TypeScript error when used in maps (Lines 447, 466)
+const TeamMemberCard = ({ member }: { member: TeamMember; key?: React.Key }) => {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <div className={`group relative p-4 glass-panel rounded-2xl transition-all duration-300 hover:-translate-y-1 ${member.isSenior ? 'border-blue-500/30' : 'border-slate-800'}`}>
-      <div className="relative mb-4 mx-auto w-24 h-24 md:w-32 md:h-32 overflow-hidden rounded-xl bg-slate-900 shadow-inner">
+    <div className={`group relative p-6 glass-panel rounded-3xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${member.isSenior ? 'border-blue-500/30' : 'border-slate-800'}`}>
+      {/* Corner Accents */}
+      <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+        <div className="w-4 h-4 border-t-2 border-r-2 border-blue-500 rounded-tr-lg"></div>
+      </div>
+      <div className="absolute bottom-0 left-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+        <div className="w-4 h-4 border-b-2 border-l-2 border-blue-500 rounded-bl-lg"></div>
+      </div>
+      
+      <div className="relative mb-6 mx-auto w-28 h-28 md:w-36 md:h-36 overflow-hidden rounded-2xl bg-slate-900 shadow-inner">
         {member.photo && !imgError ? (
           <img 
             src={member.photo} 
-            alt={member.name} 
-            className="w-full h-full object-cover grayscale-0 group-hover:grayscale transition-all duration-500"
+            alt={`${member.name} ${member.surname}`} 
+            className="w-full h-full object-cover grayscale-0 group-hover:grayscale group-hover:scale-110 transition-all duration-500 opacity-100 group-hover:opacity-90"
             onError={() => setImgError(true)}
           />
         ) : (
-          <ImagePlaceholder label="TEAM" className="h-full border-none" />
+          <ImagePlaceholder label="GÖKTÜRK" className="h-full border-none" />
         )}
+
         {member.isSenior && (
-          <div className="absolute top-1 right-1 bg-blue-600 p-1 rounded-lg shadow-xl z-20">
-            <Star className="text-white w-2 h-2 fill-current" />
+          <div className="absolute top-2 right-2 bg-blue-600 p-1.5 rounded-lg shadow-xl animate-pulse z-20">
+            <Star className="text-white w-3 h-3 fill-current" />
           </div>
         )}
+        
+        {/* Hover Overlay */}
+        <div className="absolute inset-0 bg-blue-600/60 flex items-center justify-center gap-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-30">
+          <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="bg-white p-2 rounded-full text-blue-600 hover:scale-110 transition-transform">
+            <LinkedinIcon className="w-4 h-4" />
+          </a>
+          <button className="bg-white p-2 rounded-full text-blue-600 hover:scale-110 transition-transform">
+            <Mail className="w-4 h-4" />
+          </button>
+        </div>
       </div>
+
       <div className="text-center">
-        <h4 className="text-sm font-black uppercase text-white tracking-tight">
-          {member.name} <span className="text-blue-400">{member.surname}</span>
+        <h4 className="text-lg font-black uppercase tracking-tight text-white group-hover:text-blue-400 transition-colors">
+          {member.name} <span className="text-blue-400 group-hover:text-white">{member.surname}</span>
         </h4>
-        <p className="text-slate-500 text-[9px] font-bold uppercase tracking-widest mt-1">
+        <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest mt-1 mb-3">
           {member.role}
         </p>
+        <div className="inline-block px-3 py-1 rounded-full bg-slate-900/50 border border-slate-800 text-slate-500 text-[8px] mono uppercase tracking-tighter">
+          {member.dept}
+        </div>
       </div>
     </div>
   );
 };
 
-const AircraftCard = ({ plane, index }: { plane: Aircraft; index: number }) => {
+// Added key prop to fix TypeScript error when used in maps (Line 375)
+const AircraftCard = ({ plane }: { plane: Aircraft; key?: React.Key }) => {
   const [imgError, setImgError] = useState(false);
 
   return (
@@ -219,7 +244,6 @@ const Navbar = ({ activePage, setPage }: { activePage: Page, setPage: (p: Page) 
         </div>
       </div>
 
-      {/* Desktop Menu */}
       <div className="hidden lg:flex gap-8 text-[11px] font-bold uppercase tracking-[0.2em]">
         {menuItems.map(item => (
           <button 
@@ -248,7 +272,6 @@ const Navbar = ({ activePage, setPage }: { activePage: Page, setPage: (p: Page) 
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div className="absolute top-full left-0 w-full bg-[#020617] border-b border-blue-500/20 flex flex-col p-6 gap-4 lg:hidden animate-in fade-in slide-in-from-top duration-300">
           {menuItems.map(item => (
@@ -291,7 +314,7 @@ const App = () => {
                 className="w-full h-full object-cover scale-105"
                 poster="/video-poster.jpg"
               >
-                <source src="/background-4.mp4" type="video/mp4" />
+                <source src="/background-3.mp4" type="video/mp4" />
                 <div className="w-full h-full bg-[#020617]"></div>
               </video>
             </div>
@@ -351,7 +374,7 @@ const App = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
             {FLEET_DATA.map((plane, i) => (
-              <AircraftCard key={i} plane={plane} index={i} />
+              <AircraftCard key={i} plane={plane} />
             ))}
           </div>
         </section>
@@ -400,19 +423,28 @@ const App = () => {
 
       {page === 'crew' && (
         <section className="py-24 md:py-40 px-6 max-w-7xl mx-auto min-h-screen">
-          <div className="text-center mb-16 md:mb-24">
-            <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter italic">
-              EKİP <span className="text-blue-400">ÜYELERİMİZ</span>
+          <div className="text-center mb-24">
+            <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-blue-500/30 bg-blue-500/5 text-blue-400 text-[10px] mono uppercase tracking-[0.4em] mb-8">
+              <Users className="w-3 h-3" /> Flight & Research Crew
+            </div>
+            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 italic">
+              MÜHENDİSLİK <span className="text-blue-400">EKİBİMİZ</span>
             </h2>
           </div>
 
-          <div className="mb-20 md:mb-32">
-            <div className="flex items-center gap-4 mb-10 md:mb-16">
-              <Award className="text-blue-500 w-6 h-6" />
-              <h3 className="text-xl md:text-3xl font-black uppercase tracking-widest text-white">YÖNETİM & KIDEMLİ</h3>
+          <div className="mb-32">
+            <div className="flex items-center gap-6 mb-16">
+              <div className="p-3 rounded-2xl bg-blue-600/10 border border-blue-500/20">
+                <Award className="text-blue-500 w-8 h-8" />
+              </div>
+              <div>
+                <h3 className="text-2xl md:text-3xl font-black uppercase tracking-widest text-white leading-none mb-1">KIDEMLİ PROJE EKİBİ</h3>
+                <p className="text-blue-400/60 text-[10px] mono uppercase font-bold tracking-[0.3em]">Senior Engineering Leads</p>
+              </div>
               <div className="h-px bg-gradient-to-r from-blue-900/50 to-transparent flex-grow"></div>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
               {TEAM_MEMBERS.filter(m => m.isSenior).map((member, i) => (
                 <TeamMemberCard key={i} member={member} />
               ))}
@@ -420,12 +452,18 @@ const App = () => {
           </div>
 
           <div>
-            <div className="flex items-center gap-4 mb-10 md:mb-16">
-              <Cpu className="text-slate-500 w-6 h-6" />
-              <h3 className="text-xl md:text-3xl font-black uppercase tracking-widest text-slate-300">AR-GE EKİBİ</h3>
+            <div className="flex items-center gap-6 mb-16">
+              <div className="p-3 rounded-2xl bg-slate-800/50 border border-slate-700/50">
+                <Cpu className="text-slate-500 w-8 h-8" />
+              </div>
+              <div>
+                <h3 className="text-2xl md:text-3xl font-black uppercase tracking-widest text-slate-300 leading-none mb-1">AR-GE EKİBİ</h3>
+                <p className="text-slate-500 text-[10px] mono uppercase font-bold tracking-[0.3em]">Research & Development Units</p>
+              </div>
               <div className="h-px bg-gradient-to-r from-slate-900 to-transparent flex-grow"></div>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
               {TEAM_MEMBERS.filter(m => !m.isSenior).map((member, i) => (
                 <TeamMemberCard key={i} member={member} />
               ))}
