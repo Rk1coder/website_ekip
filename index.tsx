@@ -199,7 +199,7 @@ const SponsorSection = () => {
   );
 };
 
-const AircraftCard = ({ plane }: { plane: Aircraft }) => {
+const AircraftCard = ({ plane, key }: { plane: Aircraft; key?: number }) => {
   const [imgError, setImgError] = useState(false);
 
   return (
@@ -227,7 +227,7 @@ const AircraftCard = ({ plane }: { plane: Aircraft }) => {
   );
 };
 
-const TeamMemberCard = ({ member }: { member: TeamMember }) => {
+const TeamMemberCard = ({ member, key }: { member: TeamMember; key?: number | string }) => {
   const [imgError, setImgError] = useState(false);
 
   return (
