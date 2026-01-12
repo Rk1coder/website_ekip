@@ -291,7 +291,7 @@ const App = () => {
                 className="w-full h-full object-cover scale-105"
                 poster="/video-poster.jpg"
               >
-                <source src="/background-3.mp4" type="video/mp4" />
+                <source src="/background-4.mp4" type="video/mp4" />
                 <div className="w-full h-full bg-[#020617]"></div>
               </video>
             </div>
