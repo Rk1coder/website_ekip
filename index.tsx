@@ -128,7 +128,7 @@ const ImagePlaceholder = ({ label, className = "" }: { label: string, className?
   </div>
 );
 
-const TeamMemberCard = ({ member }: { member: TeamMember }) => {
+const TeamMemberCard = ({ member, key }: { member: TeamMember; key?: React.Key }) => {
   const [imgError, setImgError] = useState(false);
 
   return (
@@ -162,7 +162,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
   );
 };
 
-const AircraftCard = ({ plane }: { plane: Aircraft }) => {
+const AircraftCard = ({ plane, index }: { plane: Aircraft; index: number }) => {
   const [imgError, setImgError] = useState(false);
 
   return (
@@ -351,7 +351,7 @@ const App = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
             {FLEET_DATA.map((plane, i) => (
-              <AircraftCard key={i} plane={plane} />
+              <AircraftCard key={i} plane={plane} index={i} />
             ))}
           </div>
         </section>
