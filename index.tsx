@@ -122,7 +122,7 @@ const SPONSORS: Sponsor[] = [
   { name: "Altium", sub: "PCB Design", isGlobal: true, icon: <CircuitBoard className="w-5 h-5" /> },
   { name: "Polymaker3D", sub: "Printing Materials", isGlobal: true, icon: <Layers className="w-5 h-5" /> },
   { name: "Innopark", sub: "Technology Center", isGlobal: false, icon: <Factory className="w-5 h-5" /> },
-  { name: "Printest", sub: "3D Services", isGlobal: false, icon: <Printer className="w-5 h-5" /> },
+  { name: "Printest", sub: "Printing Services", isGlobal: false, icon: <Printer className="w-5 h-5" /> },
   { name: "Medyavuz", sub: "Media Partner", isGlobal: false, icon: <Video className="w-5 h-5" /> },
   { name: "Erva İş Elbiseleri", sub: "Technical Wear", isGlobal: false, icon: <Shirt className="w-5 h-5" /> },
   { name: "Kıratlıoğlu Kaporta", sub: "Mechanical Support", isGlobal: false, icon: <Wrench className="w-5 h-5" /> }
@@ -162,30 +162,30 @@ const SponsorSection = () => {
               key={i} 
               className={`flex-shrink-0 mx-4 w-64 md:w-80 p-8 rounded-3xl transition-transform duration-500 transform hover:scale-105 ${
                 s.isGlobal 
-                  ? 'gold-shimmer-bg shadow-[0_0_25px_rgba(251,191,36,0.1)]' 
+                  ? 'bg-gradient-to-br from-yellow-500/10 via-amber-500/5 to-orange-500/10 shadow-[0_0_25px_rgba(251,191,36,0.15)] border border-yellow-500/20' 
                   : 'glass-panel shadow-2xl'
               }`}
             >
               <div className="flex flex-col items-center text-center">
-                <div className={`mb-4 p-3 rounded-2xl ${s.isGlobal ? 'bg-yellow-400/20 text-yellow-400' : 'bg-blue-600/10 text-blue-400'}`}>
+                <div className={`mb-4 p-3 rounded-2xl ${s.isGlobal ? 'bg-gradient-to-br from-yellow-400/30 to-amber-400/20 text-yellow-300' : 'bg-blue-600/10 text-blue-400'}`}>
                   {s.icon}
                 </div>
                 
                 {s.isGlobal && (
                   <div className="flex items-center gap-1 mb-2">
-                    <Crown className="w-3 h-3 text-yellow-400" />
-                    <span className="text-[7px] font-black uppercase tracking-widest text-yellow-400">Global Partner</span>
+                    <Crown className="w-3 h-3 text-yellow-300" />
+                    <span className="text-[7px] font-black uppercase tracking-widest text-yellow-300">Global Partner</span>
                   </div>
                 )}
                 
                 <span className={`font-black text-sm md:text-lg tracking-tighter uppercase ${
-                  s.isGlobal ? 'text-white' : 'text-white'
+                  s.isGlobal ? 'text-yellow-100' : 'text-white'
                 }`}>
                   {s.name}
                 </span>
                 
                 <span className={`text-[9px] mt-1 mono uppercase tracking-widest font-bold ${
-                  s.isGlobal ? 'text-yellow-400/80' : 'text-slate-500'
+                  s.isGlobal ? 'text-yellow-300/70' : 'text-slate-500'
                 }`}>
                   {s.sub}
                 </span>
