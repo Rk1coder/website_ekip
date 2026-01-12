@@ -46,11 +46,14 @@ import {
   Timer,
   Microchip,
   Cpu as Processor,
-  CloudLightning
+  CloudLightning,
+  MapPin,
+  Phone,
+  Send
 } from 'lucide-react';
 
 // --- Types ---
-type Page = 'home' | 'fleet' | 'achievements' | 'crew';
+type Page = 'home' | 'fleet' | 'achievements' | 'crew' | 'contact';
 
 interface Aircraft {
   name: string;
@@ -139,6 +142,180 @@ const PageHeading = ({ title, subtitle, emphasis }: { title: string, subtitle?: 
 );
 
 // --- Components ---
+
+const ContactSection = () => {
+  return (
+    <section className="py-40 px-6 max-w-7xl mx-auto min-h-screen">
+      <PageHeading title="BİZE" emphasis="ULAŞIN" subtitle="Get In Touch With Our Team" />
+      
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
+        {/* İletişim Bilgileri */}
+        <div className="space-y-10">
+          <div className="glass-panel p-10 rounded-[2.5rem] border border-blue-500/20 hover:border-blue-500/40 transition-all">
+            <div className="flex items-start gap-6">
+              <div className="p-4 rounded-2xl bg-blue-600/10">
+                <Mail className="w-8 h-8 text-blue-500" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2">E-Mail</h3>
+                <a href="mailto:gokturkekibi@gmail.com" className="text-lg text-blue-400 hover:text-blue-300 transition-colors font-bold break-all">
+                  gokturkekibi@gmail.com
+                </a>
+                <p className="text-slate-500 text-sm mt-2">Tüm sorularınız ve önerileriniz için bizimle iletişime geçin.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="glass-panel p-10 rounded-[2.5rem] border border-blue-500/20 hover:border-blue-500/40 transition-all">
+            <div className="flex items-start gap-6">
+              <div className="p-4 rounded-2xl bg-blue-600/10">
+                <MapPin className="w-8 h-8 text-blue-500" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2">Yer / Konum</h3>
+                <p className="text-lg text-slate-300 font-bold mb-2">
+                  Necmettin Erbakan Üniversitesi<br />
+                  Mühendislik Fakültesi<br />
+                  Konya, Türkiye
+                </p>
+                <a 
+                  href="https://www.google.com/maps/search/Necmettin+Erbakan+%C3%9Cniversitesi+M%C3%BChendislik+Fakültesi+Konya" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-300 transition-colors text-sm font-bold flex items-center gap-2"
+                >
+                  <ExternalLink className="w-4 h-4" /> Haritada Aç
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="glass-panel p-10 rounded-[2.5rem] border border-blue-500/20">
+            <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-8">Sosyal Medya</h3>
+            <div className="grid grid-cols-2 gap-6">
+              <a 
+                href="https://www.instagram.com/gokturkekibi/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group p-6 rounded-2xl bg-blue-600/10 hover:bg-pink-600/20 transition-all border border-blue-500/20 hover:border-pink-500/40 text-center"
+              >
+                <Instagram className="w-8 h-8 mx-auto mb-3 text-slate-400 group-hover:text-pink-500 transition-colors" />
+                <p className="font-black text-white group-hover:text-pink-400 transition-colors">Instagram</p>
+              </a>
+              
+              
+              <a 
+                href="https://www.linkedin.com/company/ne%C3%BC-g%C3%B6kt%C3%BCrk-uas/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group p-6 rounded-2xl bg-blue-600/10 hover:bg-blue-700/20 transition-all border border-blue-500/20 hover:border-blue-600/40 text-center"
+              >
+                <LinkedinIcon className="w-8 h-8 mx-auto mb-3 text-slate-400 group-hover:text-blue-600 transition-colors" />
+                <p className="font-black text-white group-hover:text-blue-400 transition-colors">LinkedIn</p>
+              </a>
+
+              <a 
+                href="https://www.youtube.com/@gokturkekibi219" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group p-6 rounded-2xl bg-blue-600/10 hover:bg-red-600/20 transition-all border border-blue-500/20 hover:border-red-500/40 text-center"
+              >
+                <Youtube className="w-8 h-8 mx-auto mb-3 text-slate-400 group-hover:text-red-500 transition-colors" />
+                <p className="font-black text-white group-hover:text-red-400 transition-colors">YouTube</p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* İletişim Formu */}
+        <div className="glass-panel p-12 rounded-[2.5rem] border border-blue-500/20 h-fit sticky top-24">
+          <h3 className="text-3xl font-black uppercase tracking-tight text-white mb-10">Direkt Mesaj Gönder</h3>
+          <form 
+            action={`https://formspree.io/${import.meta.env.VITE_FORMSPREE_FORM_ID}`}
+            method="POST" 
+            className="space-y-6"
+          >
+            <div>
+              <label className="block text-white font-bold text-sm mb-3 uppercase tracking-wider">Adınız</label>
+              <input 
+                type="text" 
+                name="name"
+                placeholder="Adınız ve soyadınız" 
+                required
+                className="w-full px-5 py-3 rounded-xl bg-slate-900/50 border border-slate-800 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none transition-all"
+              />
+            </div>
+            
+            <div>
+              <label className="block text-white font-bold text-sm mb-3 uppercase tracking-wider">E-Mail</label>
+              <input 
+                type="email" 
+                name="email"
+                placeholder="ornek@email.com" 
+                required
+                className="w-full px-5 py-3 rounded-xl bg-slate-900/50 border border-slate-800 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none transition-all"
+              />
+            </div>
+
+            <div>
+              <label className="block text-white font-bold text-sm mb-3 uppercase tracking-wider">Konu</label>
+              <input 
+                type="text" 
+                name="subject"
+                placeholder="Mesajınızın konusu" 
+                required
+                className="w-full px-5 py-3 rounded-xl bg-slate-900/50 border border-slate-800 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none transition-all"
+              />
+            </div>
+
+            <div>
+              <label className="block text-white font-bold text-sm mb-3 uppercase tracking-wider">Mesaj</label>
+              <textarea 
+                name="message"
+                placeholder="Mesajınızı yazın..." 
+                rows={6}
+                required
+                className="w-full px-5 py-3 rounded-xl bg-slate-900/50 border border-slate-800 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none transition-all resize-none"
+              />
+            </div>
+
+            <button 
+              type="submit"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 rounded-xl uppercase tracking-widest transition-all flex items-center justify-center gap-3 shadow-lg shadow-blue-600/20"
+            >
+              <Send className="w-5 h-5" /> Gönder
+            </button>
+
+            <p className="text-slate-500 text-xs text-center">
+              Mesajınız doğrudan ekibimize gönderilecektir. En kısa sürede size geri dönüş yapılacaktır.
+            </p>
+          </form>
+        </div>
+      </div>
+
+      {/* Hızlı İstatistikler */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-32">
+        <div className="glass-panel p-10 rounded-[2.5rem] border border-blue-500/20 text-center hover:bg-blue-900/10 transition-all">
+          <Users className="w-12 h-12 text-blue-500 mx-auto mb-6" />
+          <h4 className="text-4xl font-black text-white tracking-tighter mb-2">16+</h4>
+          <p className="text-slate-500 mono text-[10px] uppercase tracking-widest font-black">Ekip Üyesi</p>
+        </div>
+        
+        <div className="glass-panel p-10 rounded-[2.5rem] border border-blue-500/20 text-center hover:bg-blue-900/10 transition-all">
+          <Trophy className="w-12 h-12 text-blue-500 mx-auto mb-6" />
+          <h4 className="text-4xl font-black text-white tracking-tighter mb-2">5x</h4>
+          <p className="text-slate-500 mono text-[10px] uppercase tracking-widest font-black">Uluslararası Başarı</p>
+        </div>
+        
+        <div className="glass-panel p-10 rounded-[2.5rem] border border-blue-500/20 text-center hover:bg-blue-900/10 transition-all">
+          <Zap className="w-12 h-12 text-blue-500 mx-auto mb-6" />
+          <h4 className="text-4xl font-black text-white tracking-tighter mb-2">9+</h4>
+          <p className="text-slate-500 mono text-[10px] uppercase tracking-widest font-black">Prototip Geliştirme</p>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const SponsorSection = () => {
   // Triple the list to ensure a truly infinite scroll even on ultra-wide screens
@@ -266,7 +443,8 @@ const Navbar = ({ activePage, setPage }: { activePage: Page, setPage: (p: Page) 
     { id: 'home', label: 'Ana Sayfa' }, 
     { id: 'fleet', label: 'Uçaklarımız' }, 
     { id: 'achievements', label: 'Başarılarımız' }, 
-    { id: 'crew', label: 'Ekibimiz' }
+    { id: 'crew', label: 'Ekibimiz' },
+    { id: 'contact', label: 'İletişim' }
   ];
   const handleNav = (p: Page) => { setPage(p); setIsMenuOpen(false); };
 
@@ -504,6 +682,10 @@ const App = () => {
             </div>
           </div>
         </section>
+      )}
+
+      {page === 'contact' && (
+        <ContactSection />
       )}
 
       <SponsorSection />
