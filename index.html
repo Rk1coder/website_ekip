@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -7,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -19,42 +20,49 @@
         .glass-panel {
             background: rgba(15, 23, 42, 0.7);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-        }
-        .aviation-border {
-            border-left: 4px solid #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.15);
         }
         .glow-text {
             text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
         }
-        .glow-blue {
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        
+        /* Marquee Animation Fix */
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
-        @keyframes radar-pulse {
-            0% { transform: scale(1); opacity: 0.5; }
-            100% { transform: scale(2.5); opacity: 0; }
+        .animate-marquee-infinite {
+            display: flex;
+            width: max-content;
+            animation: marquee-scroll 60s linear infinite;
         }
-        .radar-circle {
-            position: absolute;
-            border: 1px solid #3b82f6;
-            border-radius: 50%;
-            animation: radar-pulse 3s infinite linear;
+        .animate-marquee-infinite:hover {
+            animation-play-state: paused;
         }
-        /* Teknik Tarama Çizgisi Efekti */
+
+        /* Gold Shimmer Effect for Global Sponsors */
+        @keyframes shimmer-move {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .gold-shimmer-bg {
+            background: linear-gradient(90deg, #1e293b 0%, #334155 40%, #fbbf24 50%, #334155 60%, #1e293b 100%);
+            background-size: 300% 100%;
+            animation: shimmer-move 4s infinite linear;
+            border: 2px solid rgba(251, 191, 36, 0.3);
+        }
+
         .scanlines::after {
             content: " ";
             display: block;
             position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            z-index: 15;
-            background-size: 100% 2px, 3px 100%;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 10;
+            background-size: 100% 3px, 3px 100%;
             pointer-events: none;
-            opacity: 0.3;
+            opacity: 0.4;
         }
     </style>
 <script type="importmap">
@@ -68,7 +76,6 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
 <body>
     <div id="root"></div>
