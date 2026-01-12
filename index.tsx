@@ -98,13 +98,13 @@ const TEAM_MEMBERS: TeamMember[] = [
 
 const FLEET_DATA: Aircraft[] = [
   { name: "Sarp", desc: "Pars platformunun VTOL kabiliyeti kazanmış hibrit versiyonu. 2025 METU VTOL yarışmasında 5. ardışık şampiyonluğu getiren amiral gemimiz.", badge: "2025 CHAMPION", type: "Hybrid / VTOL", photo: "/fleet/sarp.jpg" },
-  { name: "Tulpar", desc: "Hibrit tilt-rotor mekanizmalı özgün tasarım. METU VTOL 2020, 2022, 2023 şampiyonluklarının simgesi.", badge: "CHAMPION", type: "Hybrid / VTOL", photo: "/fleet/tulpar.jpg" },
-  { name: "Pars", desc: "Savaşan İHA kategorisi için 9 prototip ile geliştirilen platform. Sarp İHA'nın aerodinamik atasını temsil eder.", badge: "COMBAT READY", type: "Fixed Wing", photo: "/fleet/pars.jpg" },
-  { name: "Tuğberk", desc: "Ağır kırım sonrası 30 saatte onarılarak şampiyon olan, dayanıklılığımızın sembolü olan VTOL.", badge: "RESILIENT", type: "VTOL", photo: "/fleet/tugberk.jpg" },
-  { name: "Dikine Teyyare", desc: "2017 METU VTOL En İyi Uçuş Performansı 1.liği kazanan ilk dikey kalkış projemiz.", badge: "CLASSIC", type: "VTOL", photo: "/fleet/dikine.jpg" },
-  { name: "Fenrir", desc: "TÜBİTAK İHA yarışmalarında final aşamasına kadar yükselen uzun menzilli platform.", badge: "FINALIST", type: "Fixed Wing", photo: "/fleet/fenrir.jpg" },
-  { name: "Ebabil", desc: "2016'da Türkiye'nin ilk İHA yarışmasında 6.lık alan miras projemiz.", badge: "LEGACY", type: "Fixed Wing", photo: "/fleet/ebabil.jpg" },
-  { name: "Gökbörü", desc: "Yüksek manevra kabiliyeti ve otonom görev odaklı 2020 tasarımı sabit kanat.", badge: "AGILE", type: "Fixed Wing", photo: "/fleet/gokboru.jpg" },
+  { name: "Tulpar", desc: "Hibrit tilt-rotor mekanizmalı özgün tasarım. METU VTOL 2020, 2022, 2023 şampiyonluklarının simgesi.", badge: "CHAMPION", type: "Hybrid / VTOL", photo: "/fleet/tulpar.png" },
+  { name: "Pars", desc: "Savaşan İHA kategorisi için 9 prototip ile geliştirilen platform. Sarp İHA'nın aerodinamik atasını temsil eder.", badge: "COMBAT READY", type: "Fixed Wing", photo: "/fleet/pars.png" },
+  { name: "Tuğberk", desc: "Ağır kırım sonrası 30 saatte onarılarak şampiyon olan, dayanıklılığımızın sembolü olan VTOL.", badge: "RESILIENT", type: "VTOL", photo: "/fleet/tugberk.png" },
+  { name: "Dikine Teyyare", desc: "2017 METU VTOL En İyi Uçuş Performansı 1.liği kazanan ilk dikey kalkış projemiz.", badge: "CLASSIC", type: "VTOL", photo: "/fleet/dikine.png" },
+  { name: "Fenrir", desc: "TÜBİTAK İHA yarışmalarında final aşamasına kadar yükselen uzun menzilli platform.", badge: "FINALIST", type: "Fixed Wing", photo: "/fleet/fenrir.jpeg" },
+  { name: "Ebabil", desc: "2016'da Türkiye'nin ilk İHA yarışmasında 6.lık alan miras projemiz.", badge: "LEGACY", type: "Fixed Wing", photo: "/fleet/ebabil.png" },
+  { name: "Gökbörü", desc: "Yüksek manevra kabiliyeti ve otonom görev odaklı 2020 tasarımı sabit kanat.", badge: "AGILE", type: "Fixed Wing", photo: "/fleet/gokboru.png" },
 ];
 
 const ACHIEVEMENTS_TIMELINE = [
@@ -315,7 +315,7 @@ const App = () => {
 
       {page === 'home' && (
         <>
-          <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
+          <section id="hero" className="relative min-h-screen pt-20 flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 z-0 scanlines">
               <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/40 via-[#020617]/70 to-[#020617] z-10"></div>
               <video autoPlay loop muted playsInline className="w-full h-full object-cover opacity-60"><source src="/background-4.mp4" type="video/mp4" /></video>
