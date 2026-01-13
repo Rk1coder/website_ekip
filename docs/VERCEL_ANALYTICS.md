@@ -50,47 +50,11 @@ bun i @vercel/analytics
 
 ## Add the `Analytics` component to your app
 
-### For React/Create React App
-
-The `Analytics` component is a wrapper around the tracking script, offering more seamless integration with React.
-
-> **💡 Note:** When using the plain React implementation, there is no route support.
-
-Add the following code to the main app file:
-
-**TypeScript (App.tsx):**
-```tsx
-import { Analytics } from "@vercel/analytics/react";
-
-export default function App() {
-  return (
-    <div>
-      {/* ... */}
-      <Analytics />
-    </div>
-  );
-}
-```
-
-**JavaScript (App.jsx):**
-```jsx
-import { Analytics } from "@vercel/analytics/react";
-
-export default function App() {
-  return (
-    <div>
-      {/* ... */}
-      <Analytics />
-    </div>
-  );
-}
-```
-
 ### For Next.js (Pages Router)
 
 The `Analytics` component is a wrapper around the tracking script, offering more seamless integration with Next.js, including route support.
 
-Add the following code to your main app file:
+If you are using the `pages` directory, add the following code to your main app file:
 
 **TypeScript (pages/_app.tsx):**
 ```tsx
@@ -322,6 +286,25 @@ import Analytics from '@vercel/analytics/astro';
 </html>
 ```
 
+**JavaScript (src/layouts/Base.astro):**
+```astro
+---
+import Analytics from '@vercel/analytics/astro';
+{/* ... */}
+---
+
+<html lang="en">
+	<head>
+      <meta charset="utf-8" />
+      <!-- ... -->
+      <Analytics />
+	</head>
+	<body>
+		<slot />
+    </body>
+</html>
+```
+
 > **Note:** The `Analytics` component is available in version `@vercel/analytics@1.4.0` and later. If you are using an earlier version, you must configure the `webAnalytics` property of the Vercel adapter in your `astro.config.mjs` file as shown in the code below.
 > For further information, see the [Astro adapter documentation](https://docs.astro.build/en/guides/integrations-guide/vercel/#webanalytics).
 
@@ -338,38 +321,6 @@ export default defineConfig({
     },
   }),
 });
-```
-
-### For Vue
-
-The `Analytics` component is a wrapper around the tracking script, offering more seamless integration with Vue.
-
-> **💡 Note:** Route support is automatically enabled if you're using `vue-router`.
-
-Add the following code to your main component:
-
-**TypeScript (src/App.vue):**
-```vue
-<script setup lang="ts">
-import { Analytics } from '@vercel/analytics/vue';
-</script>
-
-<template>
-  <Analytics />
-  <!-- your content -->
-</template>
-```
-
-**JavaScript (src/App.vue):**
-```vue
-<script setup>
-import { Analytics } from '@vercel/analytics/vue';
-</script>
-
-<template>
-  <Analytics />
-  <!-- your content -->
-</template>
 ```
 
 ### For plain HTML
@@ -407,6 +358,74 @@ import { inject } from "@vercel/analytics";
 inject();
 ```
 
+### For Create React App
+
+The `Analytics` component is a wrapper around the tracking script, offering more seamless integration with React.
+
+> **💡 Note:** When using the plain React implementation, there is no route support.
+
+Add the following code to the main app file:
+
+**TypeScript (App.tsx):**
+```tsx
+import { Analytics } from "@vercel/analytics/react";
+
+export default function App() {
+  return (
+    <div>
+      {/* ... */}
+      <Analytics />
+    </div>
+  );
+}
+```
+
+**JavaScript (App.jsx):**
+```jsx
+import { Analytics } from "@vercel/analytics/react";
+
+export default function App() {
+  return (
+    <div>
+      {/* ... */}
+      <Analytics />
+    </div>
+  );
+}
+```
+
+### For Vue
+
+The `Analytics` component is a wrapper around the tracking script, offering more seamless integration with Vue.
+
+> **💡 Note:** Route support is automatically enabled if you're using `vue-router`.
+
+Add the following code to your main component:
+
+**TypeScript (src/App.vue):**
+```vue
+<script setup lang="ts">
+import { Analytics } from '@vercel/analytics/vue';
+</script>
+
+<template>
+  <Analytics />
+  <!-- your content -->
+</template>
+```
+
+**JavaScript (src/App.vue):**
+```vue
+<script setup>
+import { Analytics } from '@vercel/analytics/vue';
+</script>
+
+<template>
+  <Analytics />
+  <!-- your content -->
+</template>
+```
+
 ## Deploy your app to Vercel
 
 Deploy your app using the following command:
@@ -427,9 +446,9 @@ Once your app is deployed, and users have visited your site, you can view your d
 
 To do so, go to your [dashboard](/dashboard), select your project, and click the **Analytics** tab.
 
-After a few days of visitors, you'll be able to start exploring your data by viewing and filtering the panels.
+After a few days of visitors, you'll be able to start exploring your data by viewing and [filtering](/docs/analytics/filtering) the panels.
 
-Users on Pro and Enterprise plans can also add custom events to their data to track user interactions such as button clicks, form submissions, or purchases.
+Users on Pro and Enterprise plans can also add [custom events](/docs/analytics/custom-events) to their data to track user interactions such as button clicks, form submissions, or purchases.
 
 Learn more about how Vercel supports [privacy and data compliance standards](/docs/analytics/privacy-policy) with Vercel Web Analytics.
 
