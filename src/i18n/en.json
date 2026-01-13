@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "home": "Home",
+    "fleet": "Our Fleet",
+    "achievements": "Achievements",
+    "crew": "Our Team",
+    "contact": "Contact",
+    "join": "Join"
+  },
+  "home": {
+    "subtitle": "Designing the future of Unmanned Aerial Vehicles with indigenous and national engineering solutions.",
+    "projects": "Our Projects",
+    "team": "Our Team",
+    "departments": "Technical Departments",
+    "analysis": "Analysis",
+    "analysisDesc": "Aerodynamic optimization.",
+    "mechanical": "Mechanical",
+    "mechanicalDesc": "3D Design and CAD.",
+    "software": "Software",
+    "softwareDesc": "Autonomous control systems.",
+    "avionics": "Avionics",
+    "avionicsDesc": "Electronics and PCB.",
+    "composite": "Composite",
+    "compositeDesc": "Production and assembly."
+  },
+  "fleet": {
+    "title": "Our",
+    "emphasis": "Fleet",
+    "subtitle": "Professional Aerospace Engineering Platforms"
+  },
+  "achievements": {
+    "title": "Achievement",
+    "emphasis": "Report",
+    "subtitle": "Excellence and Dedication Since 2016",
+    "metu5x": "METU VTOL 1st",
+    "bestStartup": "Best Startup",
+    "bestTurkish": "Best Turkish Team",
+    "repairRecord": "Repair Record",
+    "timeline": "Chronological Success Timeline",
+    "capabilities": "Technical Capabilities & Innovation",
+    "sarp": "Sarp: Pars' VTOL Legacy",
+    "sarpDesc": "Sarp UAV is our flagship that combines our Combat UAV experience with VTOL (Vertical Takeoff and Landing) capability. It brought the 2025 METU VTOL championship.",
+    "tugberk": "Record Repair (Tuğberk)",
+    "tugberkDesc": "In METU VTOL 2022, despite Tuğberk UAV suffering heavy damage, the team repaired it in a record 30 hours and became champion.",
+    "pars": "Iterative Development (Pars)",
+    "parsDesc": "Pars platform was developed with 4 different versions and a total of 9 prototypes tested to achieve its current operational stability and aerodynamic power.",
+    "statistics": "Project Statistics",
+    "prototypes": "Developed Prototypes",
+    "international": "International Rank",
+    "domesticity": "Domestic Rate"
+  },
+  "crew": {
+    "title": "Engineering",
+    "emphasis": "Team",
+    "subtitle": "Dedicated Flight & Research Crew",
+    "senior": "Senior Project Team",
+    "seniorSub": "Senior Engineering Management",
+    "rnd": "R&D Team",
+    "rndSub": "Research & Development Units"
+  },
+  "contact": {
+    "title": "Get In",
+    "emphasis": "Touch",
+    "subtitle": "Get In Touch With Our Team",
+    "email": "E-Mail",
+    "emailDesc": "Contact us for all your questions and suggestions.",
+    "location": "Location",
+    "neu": "Necmettin Erbakan University",
+    "engineering": "Faculty of Engineering",
+    "konya": "Konya, Turkey",
+    "openMap": "Open on Map",
+    "social": "Social Media",
+    "directMessage": "Send Direct Message",
+    "name": "Your Name",
+    "namePlaceholder": "Your full name",
+    "emailLabel": "E-Mail",
+    "emailPlaceholder": "example@email.com",
+    "subject": "Subject",
+    "subjectPlaceholder": "Message subject",
+    "message": "Message",
+    "messagePlaceholder": "Write your message...",
+    "send": "Send",
+    "sendNote": "Your message will be sent directly to our team. We will respond to you as soon as possible.",
+    "teamMembers": "Team Members",
+    "internationalDegree": "International Rank",
+    "successPrototypes": "Success Prototypes",
+    "stats": "Quick Statistics"
+  },
+  "sponsor": {
+    "title": "Our Partners In The SKY"
+  },
+  "footer": {
+    "copyright": "© 2016-2025 GÖKTÜRK UAV TECHNOLOGY TEAM • ALL RIGHTS RESERVED"
+  }
+}

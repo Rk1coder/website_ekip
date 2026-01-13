@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
+import { useTranslation, I18nextProvider } from 'react-i18next';
+import i18n from './src/i18n/config';
 import { 
   Plane, 
   Users, 
@@ -144,9 +146,10 @@ const PageHeading = ({ title, subtitle, emphasis }: { title: string, subtitle?: 
 // --- Components ---
 
 const ContactSection = () => {
+  const { t } = useTranslation();
   return (
     <section className="py-40 px-6 max-w-7xl mx-auto min-h-screen">
-      <PageHeading title="BİZE" emphasis="ULAŞIN" subtitle="Get In Touch With Our Team" />
+      <PageHeading title={t('contact.title')} emphasis={t('contact.emphasis')} subtitle={t('contact.subtitle')} />
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
         {/* İletişim Bilgileri */}
@@ -157,11 +160,11 @@ const ContactSection = () => {
                 <Mail className="w-8 h-8 text-blue-500" />
               </div>
               <div>
-                <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2">E-Mail</h3>
+                <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2">{t('contact.email')}</h3>
                 <a href="mailto:gokturkekibi@gmail.com" className="text-lg text-blue-400 hover:text-blue-300 transition-colors font-bold break-all">
                   gokturkekibi@gmail.com
                 </a>
-                <p className="text-slate-500 text-sm mt-2">Tüm sorularınız ve önerileriniz için bizimle iletişime geçin.</p>
+                <p className="text-slate-500 text-sm mt-2">{t('contact.emailDesc')}</p>
               </div>
             </div>
           </div>
@@ -172,11 +175,11 @@ const ContactSection = () => {
                 <MapPin className="w-8 h-8 text-blue-500" />
               </div>
               <div>
-                <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2">Yer / Konum</h3>
+                <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2">{t('contact.location')}</h3>
                 <p className="text-lg text-slate-300 font-bold mb-2">
-                  Necmettin Erbakan Üniversitesi<br />
-                  Mühendislik Fakültesi<br />
-                  Konya, Türkiye
+                  {t('contact.neu')}<br />
+                  {t('contact.engineering')}<br />
+                  {t('contact.konya')}
                 </p>
                 <a 
                   href="https://www.google.com/maps/search/Necmettin+Erbakan+%C3%9Cniversitesi+M%C3%BChendislik+Fakültesi+Konya" 
@@ -184,14 +187,13 @@ const ContactSection = () => {
                   rel="noopener noreferrer"
                   className="text-blue-400 hover:text-blue-300 transition-colors text-sm font-bold flex items-center gap-2"
                 >
-                  <ExternalLink className="w-4 h-4" /> Haritada Aç
+                  <ExternalLink className="w-4 h-4" /> {t('contact.openMap')}
                 </a>
               </div>
             </div>
           </div>
-
           <div className="glass-panel p-10 rounded-[2.5rem] border border-blue-500/20">
-            <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-8">Sosyal Medya</h3>
+            <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-8">{t('contact.social')}</h3>
             <div className="grid grid-cols-2 gap-6">
               <a 
                 href="https://www.instagram.com/gokturkekibi/" 
@@ -229,50 +231,50 @@ const ContactSection = () => {
 
         {/* İletişim Formu */}
         <div className="glass-panel p-12 rounded-[2.5rem] border border-blue-500/20 h-fit sticky top-24">
-          <h3 className="text-3xl font-black uppercase tracking-tight text-white mb-10">Direkt Mesaj Gönder</h3>
+          <h3 className="text-3xl font-black uppercase tracking-tight text-white mb-10">{t('contact.directMessage')}</h3>
           <form 
             action={`https://formspree.io/${import.meta.env.VITE_FORMSPREE_FORM_ID}`}
             method="POST" 
             className="space-y-6"
           >
             <div>
-              <label className="block text-white font-bold text-sm mb-3 uppercase tracking-wider">Adınız</label>
+              <label className="block text-white font-bold text-sm mb-3 uppercase tracking-wider">{t('contact.name')}</label>
               <input 
                 type="text" 
                 name="name"
-                placeholder="Adınız ve soyadınız" 
+                placeholder={t('contact.namePlaceholder')} 
                 required
                 className="w-full px-5 py-3 rounded-xl bg-slate-900/50 border border-slate-800 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none transition-all"
               />
             </div>
             
             <div>
-              <label className="block text-white font-bold text-sm mb-3 uppercase tracking-wider">E-Mail</label>
+              <label className="block text-white font-bold text-sm mb-3 uppercase tracking-wider">{t('contact.emailLabel')}</label>
               <input 
                 type="email" 
                 name="email"
-                placeholder="ornek@email.com" 
+                placeholder={t('contact.emailPlaceholder')} 
                 required
                 className="w-full px-5 py-3 rounded-xl bg-slate-900/50 border border-slate-800 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-white font-bold text-sm mb-3 uppercase tracking-wider">Konu</label>
+              <label className="block text-white font-bold text-sm mb-3 uppercase tracking-wider">{t('contact.subject')}</label>
               <input 
                 type="text" 
                 name="subject"
-                placeholder="Mesajınızın konusu" 
+                placeholder={t('contact.subjectPlaceholder')} 
                 required
                 className="w-full px-5 py-3 rounded-xl bg-slate-900/50 border border-slate-800 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-white font-bold text-sm mb-3 uppercase tracking-wider">Mesaj</label>
+              <label className="block text-white font-bold text-sm mb-3 uppercase tracking-wider">{t('contact.message')}</label>
               <textarea 
                 name="message"
-                placeholder="Mesajınızı yazın..." 
+                placeholder={t('contact.messagePlaceholder')} 
                 rows={6}
                 required
                 className="w-full px-5 py-3 rounded-xl bg-slate-900/50 border border-slate-800 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none transition-all resize-none"
@@ -283,11 +285,11 @@ const ContactSection = () => {
               type="submit"
               className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 rounded-xl uppercase tracking-widest transition-all flex items-center justify-center gap-3 shadow-lg shadow-blue-600/20"
             >
-              <Send className="w-5 h-5" /> Gönder
+              <Send className="w-5 h-5" /> {t('contact.send')}
             </button>
 
             <p className="text-slate-500 text-xs text-center">
-              Mesajınız doğrudan ekibimize gönderilecektir. En kısa sürede size geri dönüş yapılacaktır.
+              {t('contact.sendNote')}
             </p>
           </form>
         </div>
@@ -298,19 +300,19 @@ const ContactSection = () => {
         <div className="glass-panel p-10 rounded-[2.5rem] border border-blue-500/20 text-center hover:bg-blue-900/10 transition-all">
           <Users className="w-12 h-12 text-blue-500 mx-auto mb-6" />
           <h4 className="text-4xl font-black text-white tracking-tighter mb-2">16+</h4>
-          <p className="text-slate-500 mono text-[10px] uppercase tracking-widest font-black">Ekip Üyesi</p>
+          <p className="text-slate-500 mono text-[10px] uppercase tracking-widest font-black">{t('contact.teamMembers')}</p>
         </div>
         
         <div className="glass-panel p-10 rounded-[2.5rem] border border-blue-500/20 text-center hover:bg-blue-900/10 transition-all">
           <Trophy className="w-12 h-12 text-blue-500 mx-auto mb-6" />
           <h4 className="text-4xl font-black text-white tracking-tighter mb-2">5x</h4>
-          <p className="text-slate-500 mono text-[10px] uppercase tracking-widest font-black">Uluslararası Başarı</p>
+          <p className="text-slate-500 mono text-[10px] uppercase tracking-widest font-black">{t('contact.internationalDegree')}</p>
         </div>
         
         <div className="glass-panel p-10 rounded-[2.5rem] border border-blue-500/20 text-center hover:bg-blue-900/10 transition-all">
           <Zap className="w-12 h-12 text-blue-500 mx-auto mb-6" />
           <h4 className="text-4xl font-black text-white tracking-tighter mb-2">9+</h4>
-          <p className="text-slate-500 mono text-[10px] uppercase tracking-widest font-black">Prototip Geliştirme</p>
+          <p className="text-slate-500 mono text-[10px] uppercase tracking-widest font-black">{t('contact.successPrototypes')}</p>
         </div>
       </div>
     </section>
@@ -318,13 +320,14 @@ const ContactSection = () => {
 };
 
 const SponsorSection = () => {
+  const { t } = useTranslation();
   // Triple the list to ensure a truly infinite scroll even on ultra-wide screens
   const marqueeSponsors = [...SPONSORS, ...SPONSORS, ...SPONSORS]; 
 
   return (
     <section className="py-24 bg-slate-950 border-t border-blue-900/10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
-        <h3 className="text-blue-500 mono text-[10px] uppercase tracking-[0.6em] mb-4 font-black">GÖKYÜZÜNDEKİ PARTNERLERİMİZ</h3>
+        <h3 className="text-blue-500 mono text-[10px] uppercase tracking-[0.6em] mb-4 font-black">{t('sponsor.title')}</h3>
         <div className="h-px w-24 bg-blue-500 mx-auto opacity-30"></div>
       </div>
 
@@ -438,15 +441,20 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
 };
 
 const Navbar = ({ activePage, setPage }: { activePage: Page, setPage: (p: Page) => void }) => {
+  const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuItems = [
-    { id: 'home', label: 'Ana Sayfa' }, 
-    { id: 'fleet', label: 'Uçaklarımız' }, 
-    { id: 'achievements', label: 'Başarılarımız' }, 
-    { id: 'crew', label: 'Ekibimiz' },
-    { id: 'contact', label: 'İletişim' }
+    { id: 'home', label: t('nav.home') }, 
+    { id: 'fleet', label: t('nav.fleet') }, 
+    { id: 'achievements', label: t('nav.achievements') }, 
+    { id: 'crew', label: t('nav.crew') },
+    { id: 'contact', label: t('nav.contact') }
   ];
   const handleNav = (p: Page) => { setPage(p); setIsMenuOpen(false); };
+  const changeLanguage = (lang: string) => {
+    i18n.changeLanguage(lang);
+    localStorage.setItem('language', lang);
+  };
 
   return (
     <nav className="fixed top-0 w-full z-[100] glass-panel border-b border-blue-500/10 px-4 md:px-12 py-4 md:py-5 flex justify-between items-center transition-all duration-300">
@@ -467,8 +475,32 @@ const Navbar = ({ activePage, setPage }: { activePage: Page, setPage: (p: Page) 
           </button>
         ))}
       </div>
-      <div className="flex items-center gap-5">
-        <a href="https://form.jotform.com/212165646397059" target="_blank" className="bg-white text-slate-950 px-5 md:px-8 py-2 md:py-2.5 rounded-2xl font-black text-[10px] md:text-[11px] uppercase tracking-wider hover:bg-blue-50 transition-all flex items-center gap-3">KATIL <ExternalLink className="w-4 h-4" /></a>
+      <div className="flex items-center gap-3 md:gap-5">
+        {/* Dil Seçici */}
+        <div className="flex gap-2 bg-slate-900/50 p-2 rounded-lg border border-blue-500/10">
+          <button
+            onClick={() => changeLanguage('tr')}
+            className={`px-3 md:px-4 py-1.5 rounded-md font-black text-[10px] md:text-[11px] uppercase tracking-wider transition-all ${
+              i18n.language === 'tr' 
+                ? 'bg-blue-600 text-white' 
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            TR
+          </button>
+          <button
+            onClick={() => changeLanguage('en')}
+            className={`px-3 md:px-4 py-1.5 rounded-md font-black text-[10px] md:text-[11px] uppercase tracking-wider transition-all ${
+              i18n.language === 'en' 
+                ? 'bg-blue-600 text-white' 
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            EN
+          </button>
+        </div>
+        
+        <a href="https://form.jotform.com/212165646397059" target="_blank" className="bg-white text-slate-950 px-5 md:px-8 py-2 md:py-2.5 rounded-2xl font-black text-[10px] md:text-[11px] uppercase tracking-wider hover:bg-blue-50 transition-all flex items-center gap-3">{t('nav.join')} <ExternalLink className="w-4 h-4" /></a>
         <button className="lg:hidden text-slate-400 p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}</button>
       </div>
 
@@ -500,6 +532,7 @@ const ImagePlaceholder = ({ label, className = "" }: { label: string, className?
 );
 
 const App = () => {
+  const { t } = useTranslation();
   const [page, setPage] = useState<Page>('home');
   useEffect(() => { window.scrollTo(0, 0); }, [page]);
 
@@ -525,23 +558,23 @@ const App = () => {
                   <span className="text-white glow-text italic underline decoration-blue-600 decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8">İHA EKİBİ</span>
                 </h1>
               </div>
-              <p className="max-w-3xl mx-auto text-slate-300 text-base md:text-2xl mb-12 md:mb-16 leading-relaxed font-light px-4">"Yerli ve milli mühendislik çözümleriyle İnsansız Hava Araçları'nın geleceğini tasarlıyoruz."</p>
+              <p className="max-w-3xl mx-auto text-slate-300 text-base md:text-2xl mb-12 md:mb-16 leading-relaxed font-light px-4">"{t('home.subtitle')}"</p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <button onClick={() => setPage('fleet')} className="bg-blue-600 text-white px-10 md:px-16 py-4 md:py-6 rounded-2xl md:rounded-[2rem] font-black uppercase tracking-widest text-xs md:text-sm hover:scale-105 transition-all flex items-center justify-center gap-4 shadow-xl shadow-blue-600/20">PROJELERİMİZ <ChevronRight className="w-5 h-5" /></button>
-                <button onClick={() => setPage('crew')} className="border border-blue-500/30 bg-slate-900/40 backdrop-blur-md px-10 md:px-16 py-4 md:py-6 rounded-2xl md:rounded-[2rem] font-black uppercase tracking-widest text-xs md:text-sm text-white hover:bg-slate-900/60 transition-all">EKİBİMİZ</button>
+                <button onClick={() => setPage('fleet')} className="bg-blue-600 text-white px-10 md:px-16 py-4 md:py-6 rounded-2xl md:rounded-[2rem] font-black uppercase tracking-widest text-xs md:text-sm hover:scale-105 transition-all flex items-center justify-center gap-4 shadow-xl shadow-blue-600/20">{t('home.projects')} <ChevronRight className="w-5 h-5" /></button>
+                <button onClick={() => setPage('crew')} className="border border-blue-500/30 bg-slate-900/40 backdrop-blur-md px-10 md:px-16 py-4 md:py-6 rounded-2xl md:rounded-[2rem] font-black uppercase tracking-widest text-xs md:text-sm text-white hover:bg-slate-900/60 transition-all">{t('home.team')}</button>
               </div>
             </div>
           </section>
 
           <section className="py-24 md:py-40 px-6 max-w-7xl mx-auto">
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-20 text-center text-white">TEKNİK <span className="text-blue-500">DEPARTMANLAR</span></h2>
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-20 text-center text-white">{t('home.departments')}</h2>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
               {[
-                { name: 'Analiz', icon: <BarChart3 className="w-8 h-8"/>, desc: 'Aerodinamik optimizasyon.' },
-                { name: 'Mekanik', icon: <Wrench className="w-8 h-8"/>, desc: '3D Tasarım ve CAD.' },
-                { name: 'Yazılım', icon: <Code className="w-8 h-8"/>, desc: 'Otonom kontrol sistemleri.' },
-                { name: 'Aviyonik', icon: <CircuitBoard className="w-8 h-8"/>, desc: 'Elektronik ve PCB.' },
-                { name: 'Kompozit', icon: <Layers className="w-8 h-8"/>, desc: 'Üretim ve montaj.' }
+                { name: t('home.analysis'), icon: <BarChart3 className="w-8 h-8"/>, desc: t('home.analysisDesc') },
+                { name: t('home.mechanical'), icon: <Wrench className="w-8 h-8"/>, desc: t('home.mechanicalDesc') },
+                { name: t('home.software'), icon: <Code className="w-8 h-8"/>, desc: t('home.softwareDesc') },
+                { name: t('home.avionics'), icon: <CircuitBoard className="w-8 h-8"/>, desc: t('home.avionicsDesc') },
+                { name: t('home.composite'), icon: <Layers className="w-8 h-8"/>, desc: t('home.compositeDesc') }
               ].map((cap, i) => (
                 <div key={i} className="glass-panel p-10 rounded-[2.5rem] border border-blue-900/20 text-center group transition-all hover:bg-blue-900/10 hover:-translate-y-2">
                   <div className="text-blue-500 mb-6 group-hover:scale-110 transition-transform flex justify-center">{cap.icon}</div>
@@ -556,7 +589,7 @@ const App = () => {
 
       {page === 'fleet' && (
         <section className="py-40 px-6 max-w-7xl mx-auto min-h-screen">
-          <PageHeading title="İHA" emphasis="FİLOMUZ" subtitle="Professional Aerospace Engineering Platforms" />
+          <PageHeading title={t('fleet.title')} emphasis={t('fleet.emphasis')} subtitle={t('fleet.subtitle')} />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {FLEET_DATA.map((plane, i) => <AircraftCard key={i} plane={plane} />)}
           </div>
@@ -565,14 +598,14 @@ const App = () => {
 
       {page === 'achievements' && (
         <section className="py-40 px-6 max-w-7xl mx-auto min-h-screen">
-          <PageHeading title="BAŞARI" emphasis="RAPORU" subtitle="Excellence and Dedication Since 2016" />
+          <PageHeading title={t('achievements.title')} emphasis={t('achievements.emphasis')} subtitle={t('achievements.subtitle')} />
           
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
             {[
-              { val: "5x", label: "METU VTOL 1.lik", icon: <Trophy /> },
-              { val: "1.lik", label: "En İyi Girişim", icon: <Rocket /> },
-              { val: "USA", label: "Best Turkish Team", icon: <Globe /> },
-              { val: "30h", label: "Rekor Onarım", icon: <Wrench /> }
+              { val: "5x", label: t('achievements.metu5x'), icon: <Trophy /> },
+              { val: "1.lik", label: t('achievements.bestStartup'), icon: <Rocket /> },
+              { val: "USA", label: t('achievements.bestTurkish'), icon: <Globe /> },
+              { val: "30h", label: t('achievements.repairRecord'), icon: <Wrench /> }
             ].map((stat, i) => (
               <div key={i} className="glass-panel p-10 rounded-[2.5rem] border border-blue-500/20 text-center hover:bg-blue-900/10 transition-all">
                 <div className="text-blue-500 w-12 h-12 mx-auto mb-6">{stat.icon}</div>
@@ -654,13 +687,13 @@ const App = () => {
 
       {page === 'crew' && (
         <section className="py-40 px-6 max-w-7xl mx-auto min-h-screen">
-          <PageHeading title="MÜHENDİSLİK" emphasis="EKİBİMİZ" subtitle="Dedicated Flight & Research Crew" />
+          <PageHeading title={t('crew.title')} emphasis={t('crew.emphasis')} subtitle={t('crew.subtitle')} />
           <div className="mb-32">
             <div className="flex items-center gap-8 mb-20 px-6">
               <div className="p-4 rounded-3xl bg-blue-600/10 border border-blue-500/20"><Award className="text-blue-500 w-10 h-10" /></div>
               <div>
-                <h3 className="text-3xl md:text-4xl font-black uppercase tracking-widest text-white leading-none mb-2">KIDEMLİ PROJE EKİBİ</h3>
-                <p className="text-blue-400/60 text-[11px] mono uppercase font-black tracking-[0.4em]">Senior Engineering Management</p>
+                <h3 className="text-3xl md:text-4xl font-black uppercase tracking-widest text-white leading-none mb-2">{t('crew.senior')}</h3>
+                <p className="text-blue-400/60 text-[11px] mono uppercase font-black tracking-[0.4em]">{t('crew.seniorSub')}</p>
               </div>
               <div className="h-px bg-gradient-to-r from-blue-900/50 to-transparent flex-grow"></div>
             </div>
@@ -672,8 +705,8 @@ const App = () => {
             <div className="flex items-center gap-8 mb-20 px-6">
               <div className="p-4 rounded-3xl bg-slate-800/50 border border-slate-700/50"><Chip className="text-slate-500 w-10 h-10" /></div>
               <div>
-                <h3 className="text-3xl md:text-4xl font-black uppercase tracking-widest text-slate-300 leading-none mb-2">AR-GE EKİBİ</h3>
-                <p className="text-slate-500 text-[11px] mono uppercase font-black tracking-[0.4em]">Research & Development Units</p>
+                <h3 className="text-3xl md:text-4xl font-black uppercase tracking-widest text-slate-300 leading-none mb-2">{t('crew.rnd')}</h3>
+                <p className="text-slate-500 text-[11px] mono uppercase font-black tracking-[0.4em]">{t('crew.rndSub')}</p>
               </div>
               <div className="h-px bg-gradient-to-r from-slate-900 to-transparent flex-grow"></div>
             </div>
@@ -693,7 +726,7 @@ const App = () => {
       <footer className="py-32 border-t border-blue-900/20 px-8 bg-[#01040f]">
         <div className="max-w-7xl mx-auto text-center">
           <Logo className="w-16 h-16 mx-auto mb-10 opacity-50 hover:opacity-100 transition-opacity" />
-          <p className="text-slate-600 text-[11px] mono uppercase tracking-[0.6em] font-black">© 2016-2025 GÖKTÜRK UAV TECHNOLOGY TEAM • ALL RIGHTS RESERVED</p>
+          <p className="text-slate-600 text-[11px] mono uppercase tracking-[0.6em] font-black">{t('footer.copyright')}</p>
           <div className="flex justify-center mt-12 gap-10">
              <a href="https://www.instagram.com/gokturkekibi/" target="_blank" className="text-slate-500 hover:text-pink-500 hover:scale-125 transition-all"><Instagram className="w-8 h-8" /></a>
              <a href="https://twitter.com/gokturiha" target="_blank" className="text-slate-500 hover:text-blue-400 hover:scale-125 transition-all"><Twitter className="w-8 h-8" /></a>
@@ -705,4 +738,13 @@ const App = () => {
   );
 };
 
-createRoot(document.getElementById('root')!).render(<App />);
+// Set initial language
+const savedLang = localStorage.getItem('language') || 'tr';
+document.documentElement.lang = savedLang;
+i18n.changeLanguage(savedLang);
+
+createRoot(document.getElementById('root')!).render(
+  <I18nextProvider i18n={i18n}>
+    <App />
+  </I18nextProvider>
+);
