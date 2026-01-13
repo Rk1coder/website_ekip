@@ -1,55 +1,65 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Göktürk İHA - İnsansız Hava Araçları Ekibi</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="apple-touch-icon" href="/logo.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Inter ve JetBrains Mono fontları için geniş latin desteği -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* İngilizce karakterlerde 'İ' sorunu yaşanmaması için locale-specific harf dönüşümlerini optimize ediyoruz */
+            font-feature-settings: "lnum", "pnum";
+            -webkit-font-smoothing: antialiased;
+        }
+        
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: #020617;
             color: #f8fafc;
             overflow-x: hidden;
         }
+
+        /* İngilizce içerikler için özel sınıf */
+        [lang="en"] {
+            text-transform: uppercase;
+            /* i -> I dönüşümü için tarayıcıyı zorlar */
+            font-variant: normal;
+        }
+
         .mono { font-family: 'JetBrains Mono', monospace; }
+        
         .glass-panel {
             background: rgba(15, 23, 42, 0.7);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(59, 130, 246, 0.15);
         }
+        
         .glow-text {
             text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
         }
         
-        /* Marquee Animation Fix */
         @keyframes marquee-scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
+        
         .animate-marquee-infinite {
             display: flex;
             width: max-content;
             animation: marquee-scroll 60s linear infinite;
         }
+        
         .animate-marquee-infinite:hover {
             animation-play-state: paused;
-        }
-
-        /* Gold Shimmer Effect for Global Sponsors */
-        @keyframes shimmer-move {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        .gold-shimmer-bg {
-            background: linear-gradient(90deg, #1e293b 0%, #334155 40%, #fbbf24 50%, #334155 60%, #1e293b 100%);
-            background-size: 300% 100%;
-            animation: shimmer-move 4s infinite linear;
-            border: 2px solid rgba(251, 191, 36, 0.3);
         }
 
         .scanlines::after {
