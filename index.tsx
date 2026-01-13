@@ -247,7 +247,7 @@ const ContactSection = () => {
         <div className="glass-panel p-12 rounded-[2.5rem] border border-blue-500/20 h-fit sticky top-24">
           <h3 className="text-3xl font-black uppercase tracking-tight text-white mb-10">Direkt Mesaj Gönder</h3>
           <form 
-            action={`https://formspree.io/${process.env.VITE_FORMSPREE_FORM_ID}`}
+            action={`https://formspree.io/f/mykkyblk`}
             method="POST" 
             className="space-y-6"
           >
