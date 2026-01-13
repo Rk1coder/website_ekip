@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "fleet": "Uçaklarımız",
+    "achievements": "Başarılarımız",
+    "crew": "Ekibimiz",
+    "contact": "İletişim",
+    "join": "Katıl"
+  },
+  "home": {
+    "subtitle": "Yerli ve milli mühendislik çözümleriyle İnsansız Hava Araçları'nın geleceğini tasarlıyoruz.",
+    "projects": "Projelerimiz",
+    "team": "Ekibimiz",
+    "departments": "Teknik Departmanlar",
+    "analysis": "Analiz",
+    "analysisDesc": "Aerodinamik optimizasyon.",
+    "mechanical": "Mekanik",
+    "mechanicalDesc": "3D Tasarım ve CAD.",
+    "software": "Yazılım",
+    "softwareDesc": "Otonom kontrol sistemleri.",
+    "avionics": "Aviyonik",
+    "avionicsDesc": "Elektronik ve PCB.",
+    "composite": "Kompozit",
+    "compositeDesc": "Üretim ve montaj."
+  },
+  "fleet": {
+    "title": "İHA",
+    "emphasis": "FİLOMUZ",
+    "subtitle": "Profesyonel Havacılık Mühendisliği Platformları"
+  },
+  "achievements": {
+    "title": "BAŞARI",
+    "emphasis": "RAPORU",
+    "subtitle": "2016'dan Beri Mükemmellik ve Adanmışlık",
+    "metu5x": "METU VTOL 1.lik",
+    "bestStartup": "En İyi Girişim",
+    "bestTurkish": "Best Turkish Team",
+    "repairRecord": "Rekor Onarım",
+    "timeline": "Kronolojik Başarı Çizgisi",
+    "capabilities": "Teknik Kabiliyetler & İnovasyon",
+    "sarp": "Sarp: Pars'ın VTOL Mirası",
+    "sarpDesc": "Sarp İHA, ekibimizin Savaşan İHA deneyimini VTOL (Dikey Kalkış-İniş) kabiliyetiyle birleştiren hibrit amiral gemimizdir. 2025 METU VTOL şampiyonluğunu getirmiştir.",
+    "tugberk": "Rekor Onarım (Tuğberk)",
+    "tugberkDesc": "METU VTOL 2022'de Tuğberk İHA ağır kırım yaşamasına rağmen, ekip tarafından 30 saat gibi rekor bir sürede onarılarak şampiyon olmuştur.",
+    "pars": "İteratif Geliştirme (Pars)",
+    "parsDesc": "Pars platformu, 4 farklı versiyon ve toplamda 9 prototip test edilerek bugünkü operasyonel stabilitesine ve aerodinamik gücüne kavuşturulmuştur.",
+    "statistics": "Proje İstatistikleri",
+    "prototypes": "Geliştirilen Prototip",
+    "international": "Uluslararası Derece",
+    "domesticity": "Yerlilik Oranı"
+  },
+  "crew": {
+    "title": "MÜHENDİSLİK",
+    "emphasis": "EKİBİMİZ",
+    "subtitle": "Kararlı Uçuş & Araştırma Ekibi",
+    "senior": "Kıdemli Proje Ekibi",
+    "seniorSub": "Kıdemli Mühendislik Yönetimi",
+    "rnd": "AR-GE Ekibi",
+    "rndSub": "Araştırma & Geliştirme Birimleri"
+  },
+  "contact": {
+    "title": "BİZE",
+    "emphasis": "ULAŞIN",
+    "subtitle": "Ekibimizle İletişime Geçin",
+    "email": "E-Mail",
+    "emailDesc": "Tüm sorularınız ve önerileriniz için bizimle iletişime geçin.",
+    "location": "Yer / Konum",
+    "neu": "Necmettin Erbakan Üniversitesi",
+    "engineering": "Mühendislik Fakültesi",
+    "konya": "Konya, Türkiye",
+    "openMap": "Haritada Aç",
+    "social": "Sosyal Medya",
+    "directMessage": "Direkt Mesaj Gönder",
+    "name": "Adınız",
+    "namePlaceholder": "Adınız ve soyadınız",
+    "emailLabel": "E-Mail",
+    "emailPlaceholder": "ornek@email.com",
+    "subject": "Konu",
+    "subjectPlaceholder": "Mesajınızın konusu",
+    "message": "Mesaj",
+    "messagePlaceholder": "Mesajınızı yazın...",
+    "send": "Gönder",
+    "sendNote": "Mesajınız doğrudan ekibimize gönderilecektir. En kısa sürede size geri dönüş yapılacaktır.",
+    "teamMembers": "Ekip Üyesi",
+    "internationalDegree": "Uluslararası Başarı",
+    "successPrototypes": "Prototip Geliştirme",
+    "stats": "Hızlı İstatistikler"
+  },
+  "sponsor": {
+    "title": "GÖKYÜZÜNDEKI PARTNERLERİMİZ"
+  },
+  "footer": {
+    "copyright": "© 2016-2025 GÖKTÜRK UAV TECHNOLOGY TEAM • ALL RIGHTS RESERVED"
+  }
+}
