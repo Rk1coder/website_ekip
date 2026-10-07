@@ -1,0 +1,45 @@
+.sponsors-section { padding: 72px 0 64px; background: linear-gradient(180deg, #020617, #071120 55%, #020617); border-top: 1px solid #1e3a5f55; overflow: hidden; }
+.sponsors-heading-row { max-width: 1280px; margin: 0 auto 32px; padding: 0 32px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+.sponsors-eyebrow { font-family: 'JetBrains Mono', monospace; color: #60a5fa; font-size: 10px; font-weight: 700; letter-spacing: .22em; margin-bottom: 14px; }
+.sponsors-heading-row h2 { color: #f8fafc; font-size: clamp(28px, 3.2vw, 44px); font-weight: 800; line-height: 1.15; letter-spacing: -.045em; }
+.sponsors-heading-row h2 span { color: #94a3b8; }
+.sponsors-description { max-width: 580px; margin-top: 14px; color: #94a3b8; font-size: 14px; line-height: 1.7; }
+.sponsors-pause { flex-shrink: 0; display: flex; gap: 10px; align-items: center; border: 1px solid #334155; border-radius: 999px; padding: 10px 16px; color: #cbd5e1; font-size: 11px; transition: background .2s; }
+.sponsors-pause:hover { background: #17243a; }
+.sponsors-pause:focus-visible, .sponsors-window:focus-visible { outline: 2px solid #60a5fa; outline-offset: -2px; }
+.sponsors-window { overflow-x: auto; scrollbar-width: thin; scrollbar-color: #334155 #071120; padding: 4px 0 16px; }
+.sponsors-track { display: flex; width: max-content; animation: sponsors-scroll 85s linear infinite; }
+.sponsors-group { display: flex; gap: 20px; padding-right: 20px; }
+.sponsors-track.is-paused, .sponsors-window:hover .sponsors-track, .sponsors-window:focus-within .sponsors-track { animation-play-state: paused; }
+.sponsor-card { width: 340px; height: 300px; flex: 0 0 auto; position: relative; overflow: hidden; isolation: isolate; border-radius: 20px; border: 1px solid #33415599; background: #0f172a; }
+.sponsor-card-background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -3; transition: transform .65s ease; }
+.sponsor-card:hover .sponsor-card-background { transform: scale(1.05); }
+.sponsor-card-shade { position: absolute; inset: 0; z-index: -2; background: linear-gradient(180deg, #02061766, #02061705 35%, #020617dd 85%, #020617); }
+.sponsor-card-top { position: absolute; top: 20px; left: 22px; right: 22px; display: flex; justify-content: space-between; align-items: center; }
+.sponsor-category { color: #e2e8f0; font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 6px 9px; border: 1px solid #ffffff20; background: #02061766; border-radius: 6px; backdrop-filter: blur(8px); }
+.sponsor-card-dot { width: 5px; height: 5px; border-radius: 50%; background: #93c5fd; box-shadow: 0 0 12px #60a5fa; }
+.sponsor-card-content { position: absolute; bottom: 22px; left: 22px; right: 22px; }
+.sponsor-logo-panel { width: 190px; height: 66px; background: #fff; border-radius: 10px; padding: 13px 18px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; box-shadow: 0 6px 24px #0002; }
+.sponsor-logo-panel img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
+.sponsor-wordmark { min-height: 66px; display: flex; align-items: center; margin-bottom: 18px; }
+.sponsor-wordmark h3 { color: #fff; font-size: 26px; line-height: 1.12; font-weight: 800; letter-spacing: -.035em; max-width: 250px; }
+.sponsor-card-caption { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #ffffff24; padding-top: 14px; gap: 12px; color: #cbd5e1; font-size: 12px; }
+.sponsor-card-caption svg { color: #60a5fa; }
+@keyframes sponsors-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (max-width: 640px) { .sponsors-section { padding: 44px 0 36px; } .sponsors-heading-row { padding: 0 24px; flex-direction: column; align-items: flex-start; gap: 20px; } .sponsor-card { width: 280px; height: 280px; } .sponsors-description { font-size: 13px; } .sponsors-group { gap: 14px; padding-right: 14px; } }
+@media (prefers-reduced-motion: reduce) { .sponsors-track { animation: none; } .sponsors-group[aria-hidden="true"] { display: none; } .sponsors-pause { display: none; } .sponsor-card-background { transition: none; } }
+
+.sponsor-logo-panel--dark { background: #111827; border: 1px solid #ffffff20; }
+/* A continuous strip by default; keyboard users can browse a stationary row. */
+.sponsors-window { overflow-x: hidden; }
+.sponsors-window:focus-within { overflow-x: auto; }
+.sponsors-window:focus-within .sponsors-track { animation: none; }
+@media (prefers-reduced-motion: reduce) { .sponsors-window { overflow-x: auto; } }
+
+/* Frame the supplied logos without their large transparent top/bottom margins. */
+.sponsor-logo-panel img.sponsor-logo-padded { width: 100%; height: 100%; object-fit: cover; }
+
+.sponsor-logo-panel[data-sponsor="Kahveci Otomotiv"],
+.sponsor-logo-panel[data-sponsor="Ceylan Composite"] { height: 116px; overflow: hidden; }
+.sponsor-logo-panel[data-sponsor="Kahveci Otomotiv"] img { transform: scale(1.7); }
+.sponsor-logo-panel[data-sponsor="Ceylan Composite"] img { width: 100%; height: 100%; object-fit: cover; }
